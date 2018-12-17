@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宁波文化广场-领航行动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+</head>
+<script src="./js/public.js"></script>
+<link rel="stylesheet" href="./css/public.css">
+<style>
+    body{
+        background: url("./img/index/background2.png") center center no-repeat;
+        background-size: 100% 100%;
+    }
+    .bird{
+        width: 3.41rem;height: 1.52rem;
+        position: absolute;
+        left: 50%;top: 4%;
+        -webkit-animation:birdmove 1.3s ease infinite alternate;
+        -moz-animation:birdmove 1.3s ease infinite alternate;
+        -o-animation:birdmove 1.3s ease infinite alternate;
+        animation:birdmove 1.3s ease infinite alternate;
+    }
+    .birdsmall{
+        width: 1.34rem;height: .58rem;
+        position: absolute;
+        left: 65%;
+        top: 5%;
+    }
+    .location{
+        width: .8rem;
+        height: .97rem;
+        position:absolute;
+        /*top:.5rem;*/
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-animation:loationmove 0.8s ease infinite alternate;
+        -moz-animation:loationmove 0.8s ease infinite alternate;
+        -o-animation:loationmove 0.8s ease infinite alternate;
+        animation:loationmove 0.8s ease infinite alternate;
+    }
+    .loading{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: .28rem;
+    }
+    @keyframes loationmove
+    {
+        0%   {top:.75rem ;}
+        100% {top:.95rem;}
+    }
+    @keyframes birdmove
+    {
+        0%   {left:46%;top: 9%;}
+        100% {left: 48%;top: 7%;}
+    }
+</style>
+<body>
+<img src="./img/logo.png" class="logo" alt="">
+<img src="./img/index/birdsmall.png" alt="" class="birdsmall">
+<img src="./img/index/birdbig.png" alt="" class="bird">
+<div class="loading">
+    <div>Loading <span class="loanum">0</span>%</div>
+    <img src="./img/index/loading.png" alt="" class="location">
+</div>
+
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/fingerprint.js"></script>
+<script>
+    //阻止微信浏览器滑动
+    window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+    window.onload = function () {
+        if(localStorage.user){
+            localStorage.removeItem('user')
+        }
+        var loading = [10,30,33,34,50,78,100];
+        var index = 0;
+        var timer = setInterval(()=>{
+            $(".loanum").html(loading[index]);
+            index++;
+            if(index == 7){
+                clearInterval(timer);
+                location.replace('./exploring.html')
+                // alert(new Fingerprint().get())
+            }
+        },450)
+    }
+</script>

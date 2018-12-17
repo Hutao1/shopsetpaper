@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+	</head>
+	<script type="text/javascript">
+		 //屏幕适配自适应
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 640) deviceWidth = 640;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			height: 100%;
+		}
+		.touchIsland{
+			height: 70%;
+			position: relative;
+		}
+		.touchIsland>img{
+			width: 1.5rem;
+			height: 1.5rem;
+			position: absolute;
+			/*transform: scale();*/
+			transition: all 1s ease;
+		}
+		/*.touchIsland>img:nth-child(1){
+			width: 1.5rem;
+			height: 1.5rem;
+			position: absolute;
+			transform: scale();
+			transition: all 1s ease;
+		}
+		.touchIsland>img:nth-child(1){
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		.touchIsland>img:nth-child(1){
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		.touchIsland>img:nth-child(1){
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		.touchIsland>img:nth-child(1){
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		.touchIsland>img:nth-child(1){
+			width: 1.5rem;
+			height: 1.5rem;
+		}*/
+		
+	</style>
+	<body>
+		<div class="touchIsland">
+			<img src="img/Chrysanthemum.jpg" alt="" />
+			<img src="img/Desert.jpg" alt="" />
+			<img src="img/Hydrangeas.jpg" alt="" />
+			<img src="img/Jellyfish.jpg" alt="" />
+			<img src="img/Koala.jpg" alt="" />
+			<img src="img/Lighthouse.jpg" alt="" />
+		</div>
+	</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	var arr = [["30%","75%",1.2],["10%","55%",0.9],["20%","15%",0.7],
+	["60%","15%",0.6],["70%","45%",0.8],["55%","65%",1]]
+//	console.log($(".touchIsland img"))
+	$(".touchIsland>img").each(function(index,item){
+		$(this).css({"left":arr[index][0],"top":arr[index][1],transform:'scale('+arr[index][2]+')'})
+	})
+	var num =0;
+	var touchstart = 0;
+	var touchend = 0;
+	/*$('body').on('touchstart',function(e){
+		var e = e || event;
+		console.log(e)
+	})*/
+	document.body.ontouchstart = function(e){
+		var e  = e || event;
+		touchstart = e.touches[0].pageX;
+	}
+	document.body.ontouchend = function(e){
+		var e  = e || event;
+		touchend = e.changedTouches[0].pageX;
+		if(touchstart-touchend>100){
+			//左滑
+			num +=1;
+			moveimg();
+		}else if(touchend-touchstart>100){
+			//右滑
+			num -=1;
+			moveimg();
+		}
+	}
+		/*$(".touchIsland>img").each(function(index,item){
+			index +=1;
+			if(index+1>$(".touchIsland>img").length) index=index-$(".touchIsland>img").length-1
+			console.log(arr[index][2])
+//		$(this).animate({"left":arr[index][0],"top":arr[index][1],transform:'scale('+arr[index][2]+')'},1000,'linear')
+		$(this).css({"left":arr[index][0],"top":arr[index][1],transform:'scale('+arr[index][2]+')'})
+	})*/
+	function moveimg(){
+		$(".touchIsland>img").each(function(index,item){
+			index +=num;
+			if(index+1>$(".touchIsland>img").length) index=index%$(".touchIsland>img").length
+			if(index<0) index = issmall(index)
+		//		$(this).animate({"left":arr[index][0],"top":arr[index][1],transform:'scale('+arr[index][2]+')'},1000,'linear')
+				$(this).css({"left":arr[index][0],"top":arr[index][1],transform:'scale('+arr[index][2]+')'})
+			})
+	}
+	var issmall = function(index){
+		while(index<0){
+			index=index+$(".touchIsland>img").length;
+		}
+		return index;
+	}
+	issmall(-25)
+</script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宁波文化广场-领航行动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+</head>
+<script src="./js/public.js"></script>
+<link rel="stylesheet" href="./css/public.css">
+<style>
+   /* body{
+        background: url("./img/rule/rule.jpg") center center no-repeat;
+        background-size: 100% 100%;
+    }*/
+   .content{
+       width: 100%;
+       /*height: 100%;*/
+       /*overflow-y: auto;*/
+       position: relative;
+   }
+    .join{
+        width: 2.79rem;
+        height: 1.35rem;
+        position: absolute;
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .rule{
+        width: 100%;
+    }
+</style>
+<body>
+<img src="./img/logo.png" class="logo" alt="">
+<div class="content">
+    <img src="./img/rule/rule1.jpg" alt="" class="rule">
+    <img src="./img/rule/join.png" alt="" class="join">
+</div>
+<img src="./img/rule/gobottom.png" alt="" style="width: 1.91rem;height: .7rem;position: fixed;bottom: 1%;left: 50%;transform: translateX(-50%);opacity: .3">
+<!--<audio src="./audio/rain.mp3" autoplay></audio>-->
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            // playbirdbg()
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                playbirdbg()
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    // alert(sessionStorage.ischeck)
+    if(!sessionStorage.ischeck){
+        location.replace('./exploring.html')
+    }
+    /*var $au = $("<audio></audio>");
+    $au[0].src = './audio/lute.mp3';
+    $au[0].autoplay = 'autoplay';*/
+
+
+    //阻止微信浏览器滑动
+    // window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+    window.onload = function () {
+        // playbirdbg();
+       $('.join').on('click',function (e) {
+           location.replace('./chooceisland.html')
+       })
+        /*document.querySelector('.content').ontouchstart = function (e) {
+            var e = e || event;
+            console.log(e)
+            var starty = e.touches[0].pageY;
+            document.querySelector('.content').ontouchmove = function (e) {
+                var e = e || event;
+                console.log(e)
+            }
+        }*/
+    }
+
+</script>

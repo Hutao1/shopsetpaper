@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宁波文化广场-领航行动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+</head>
+<script src="./js/public.js"></script>
+<link rel="stylesheet" href="./css/public.css">
+<style>
+     body{
+         background: url("./img/result/background1.png") center center no-repeat;
+         background-size: 100% 100%;
+     }
+     .redbackground,.bluebackground{
+         /*padding-left: .2rem;*/
+         box-sizing: border-box;
+         display: flex;
+         align-items: center;
+     }
+    .redbackground{
+        width: 93%;
+        height: 2.26rem;
+        margin: 0 auto;
+        background: #fc6a6a;
+        border-radius: .2rem;
+        margin-bottom: .2rem;
+    }
+    .bluebackground{
+        width: 93%;
+        height: 2.26rem;
+        margin: 0 auto;
+        background: #1361ce;
+        border-radius: .2rem;
+        margin-bottom: .2rem;
+    }
+    .content{
+        height: 83.2%;
+        width: 100%;
+        overflow-y: auto;
+        position: fixed;
+        bottom: 0;
+    }
+    .content p{
+        font-size: 0.3rem;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+    }
+    .contentleft{
+        width: 1.83rem;
+    }
+    .contentright{
+        display: flex;
+        flex: 1;
+        height: 100%;
+        padding-left: .45rem;
+        padding-bottom: .1rem;
+        padding-top: .1rem;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .shop{
+        font-size: .28rem;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+    .line{
+        height: 1.73rem;
+        width: 1px;
+        background: #fff;
+    }
+    .process{
+        display: flex;
+        align-items: center;
+    }
+    .process>p{
+        margin-right: .2rem;
+    }
+    .startbtn{
+        width: 2.06rem;
+        height: 2.58rem;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9;
+    }
+</style>
+<body>
+<img src="./img/logo.png" class="logo" alt="">
+<div class="content">
+    <!--<div class="redbackground first">
+        <div class="culumn contentcenter contentleft">
+            <p>最具品格</p>
+            <p>生活品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bluebackground second">
+        <div class="culumn contentcenter contentleft">
+            <p>最具期待</p>
+            <p>品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="redbackground third">
+        <div class="culumn contentcenter contentleft">
+            <p>最佳亲子</p>
+            <p>教育品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bluebackground five">
+        <div class="culumn contentcenter contentleft">
+            <p>最佳零售</p>
+            <p>品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="redbackground six">
+        <div class="culumn contentcenter contentleft">
+            <p>最具风味</p>
+            <p>品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bluebackground fourth">
+        <div class="culumn contentcenter contentleft">
+            <p>最佳服务</p>
+            <p>品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #fe605f;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="redbackground seven">
+        <div class="culumn contentcenter contentleft">
+            <p>最具人气</p>
+            <p>品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+<img src="./img/result/startbtn.png" alt="" class="startbtn">
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/interfaceUrl.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            // playbirdbg()
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                playbackground()
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    if(!sessionStorage.ischeck){
+        location.replace('./exploring.html')
+    }
+    /*var json = {
+        first:'a',// 品格生活life
+        second:'b',//期待hope
+        third:'c',//亲子parentchild
+        fourth:'d',//最佳服务service
+        five:'e',//最佳零售retail
+        six:'f',//最具风味relish
+        seven:'g',
+        id:'sfsl'
+    }*/
+    var maxnum = 0;
+    //阻止微信浏览器滑动
+    // window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+    window.onload = function () {
+        // playbackground();
+        $(".startbtn").on('click',function () {
+            location.replace('./lottery.html');
+        })
+        $.ajax({
+            type:'post',
+            url: USERMESSAGE.getSort,
+            contentType: "application/json; charset=utf-8",
+            success: function (res) {
+                if(res.code == 0){
+                    /*<div class="redbackground first">
+        <div class="culumn contentcenter contentleft">
+            <p>最具品格</p>
+            <p>生活品牌</p>
+        </div>
+        <div class="line"></div>
+        <div class="contentright">
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+
+            </div>
+            <div class="shop">
+                <span>中国电信</span>
+                <div class="process">
+                    <p style="width: 2.65rem;background: #1361ce;height: 0.13rem"></p><span>25票</span>
+                </div>
+            </div>
+        </div>
+    </div>*/
+                    var data = res.data;
+                    maxnum = data.max;
+                    var firststr = '<div class="redbackground first"> <div class="culumn contentcenter contentleft"><p>最具品格</p> <p>生活品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    var sencondstr = '<div class="bluebackground second"> <div class="culumn contentcenter contentleft"><p>最具期待</p> <p>品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    var thirdstr = '<div class="redbackground third"> <div class="culumn contentcenter contentleft"><p>最佳亲子</p> <p>品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    var fivestr = '<div class="bluebackground five"> <div class="culumn contentcenter contentleft"><p>最佳零售</p> <p>品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    var sixstr = '<div class="redbackground six"> <div class="culumn contentcenter contentleft"><p>最具风味</p> <p>品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    var fourthstr = '<div class="bluebackground fourth"> <div class="culumn contentcenter contentleft"><p>最佳服务</p> <p>品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    var sevenstr = '<div class="redbackground seven"> <div class="culumn contentcenter contentleft"><p>最具人气</p> <p>生活品牌</p> </div> <div class="line"></div> <div class="contentright">';
+                    console.log(res.data)
+                    data.first.forEach(function(item){
+                        firststr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #1361ce;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    firststr+='</div></div>';
+                    data.second.forEach(function(item){
+                        sencondstr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #fe605f;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    sencondstr+='</div></div>';
+                    data.third.forEach(function(item){
+                        thirdstr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #1361ce;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    thirdstr+='</div></div>';
+                    data.fourth.forEach(function(item){
+                        fourthstr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #fe605f;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    fourthstr+='</div></div>';
+                    data.fifth.forEach(function(item){
+                        fivestr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #fe605f;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    fivestr+='</div></div>';
+                    data.sixth.forEach(function(item){
+                        sixstr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #1361ce;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    sixstr+='</div></div>';
+                    data.seventh.forEach(function(item){
+                        sevenstr+='<div class="shop"> <span>'+item.storename+'</span><div class="process"><p style="width: '+2.65*item.count/maxnum+'rem;background: #1361ce;height: 0.13rem"></p><span>'+item.count+'票</span> </div> </div>'
+                    });
+                    sevenstr+='</div></div>';
+                    var allstr = firststr+sencondstr+thirdstr+fivestr+sixstr+fourthstr+sevenstr;
+                    $('.content').html(allstr)
+                }else{
+                    alert(res.msg)
+                }
+            },
+        });
+    }
+
+    /*{
+  "code": "0",
+  "msg": "成功",
+  "data": {
+    max:3,
+    first:[{
+      "count": 1,
+      "storename": "Tea Co. Lab"
+    }],
+    second:[{
+      "count": 3,
+      "storename": "萌派儿童摄影"
+    },{
+      "count": 1,
+      "storename": "萌派儿童摄影"
+    }],
+    third:[{
+      "count": 1,
+      "storename": "育乐湾"
+    }],
+    fourth:[{
+      "count": 1,
+      "storename": "宁波云医院"
+    }],
+    fifth:[{
+      "count": 1,
+      "storename": "喜士多"
+    }],
+    sixth:[{
+      "count": 1,
+      "storename": "肯德基"
+    }],
+    seventh:[{
+      "count": 1,
+      "storename": "贝迪堡"
+    }]
+  }
+}*/
+</script>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宁波文化广场-领航行动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+</head>
+<script src="./js/public.js"></script>
+<link rel="stylesheet" href="./css/public.css">
+<style>
+    .all img.icon{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+    .all>div{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .all>div>div{
+        position: absolute;
+    }
+    /*圆形*/
+    .cyclo{
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+    /*长方形*/
+    .rectangle{
+        width: 2.36rem;
+        height: .82rem;
+    }
+    .life,.hope,.parentchild,.service,.retail,.relish{
+        display: none;
+    }
+    .bottom{
+        position: fixed;
+        bottom: 5%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .submit{
+        width: 1.94rem;
+        height: .79rem;
+    }
+    .back{
+        width: 1.9rem;
+        height: .79rem;
+    }
+    .redloacation{
+        -webkit-animation:loationmove 0.8s ease infinite alternate;
+        -moz-animation:loationmove 0.8s ease infinite alternate;
+        -o-animation:loationmove 0.8s ease infinite alternate;
+        animation:loationmove 0.8s ease infinite alternate;
+    }
+    .result{
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        display: none;
+    }
+    .submitok {
+        width: 7.09rem;
+        height: 5.76rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+    }
+    .submitno {
+        width: 5.53rem;
+        height: 5.76rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+    }
+    .submitokimg,.submitnoimg{
+        width: 100%;
+        height: 100%;
+    }
+    .okclose,.noclose{
+        width: 1.06rem;
+        height: 1.36rem;
+        position: absolute;
+        top: .5rem;
+    }
+    .noclose{
+        right: .5rem;
+    }
+    .okclose{
+        right: 1.2rem;
+    }
+    @keyframes loationmove
+    {
+        0%   {top:-.26rem ;}
+        100% {top:-.32rem;}
+    }
+</style>
+<body>
+<img src="./img/logo.png" class="logo" alt="">
+<div class="all">
+    <div class="life">
+        <!--长条形width:31.47%,236,height:5.7%,82 圆形:width:18.7%,140;height:3%,140-->
+        <!--<div data-shopname="La Rêveuse" class="rectangle" style="left: 8%;top: 45.8%;"><img class="icon" src="./img/islanddetail/life/1.png" alt=""></div>
+        <div data-shopname="Andy的面包与奶酪" class="cyclo" style="left: 26.4%;top: 25.19%;"><img class="icon" src="./img/islanddetail/life/2.png" alt=""></div>
+        <div data-shopname="蛋糕爆炸" class="cyclo" style="left: 17.07%;top: 33.28%;"><img class="icon" src="./img/islanddetail/life/3.png" alt=""></div>
+        <div data-shopname="cococ cafe" class="cyclo" style="left: 65.07%;top: 35.08%;"><img class="icon" src="./img/islanddetail/life/4.png" alt=""></div>
+        <div data-shopname="马克丹尼" class="rectangle" style="left: 11.47%;top: 52.77%;"><img class="icon" src="./img/islanddetail/life/5.png" alt=""></div>
+        <div data-shopname="鹿谷制茶" class="rectangle" style="left: 60.27%;top: 46.93%;"><img class="icon" src="./img/islanddetail/life/6.png" alt=""></div>
+        <div data-shopname="树叶" class="cyclo" style="left: 73.6%;top: 54.27%;"><img class="icon" src="./img/islanddetail/life/7.png" alt=""></div>
+        <div data-shopname="Tea Co. Lab" class="rectangle" style="left: 6.13%;top: 62.52%;"><img class="icon" src="./img/islanddetail/life/8.png" alt=""></div>
+        <div data-shopname="C2精品烘焙" class="cyclo" style="left: 55.2%;top: 25.04%;"><img class="icon" src="./img/islanddetail/life/9.png" alt=""></div>
+        <div data-shopname="星巴克" class="cyclo" style="left: 30.13%;top: 71.36%;"><img class="icon" src="./img/islanddetail/life/10.png" alt=""></div>
+        <div data-shopname="一鸣真鲜奶吧" class="cyclo" style="left: 60.27%;top: 69.12%;"><img class="icon" src="./img/islanddetail/life/11.png" alt=""></div>-->
+    </div>
+    <div class="hope">
+        <!--<div data-shopname="教冠好书店" class="cyclo" style="left: 71.2%;top: 24.21%;"><img class="icon" src="./img/islanddetail/hope/1.png" alt=""></div>
+        <div data-shopname="长颈鹿美语" class="cyclo" style="left: 35.6%;top: 21.06%;"><img class="icon" src="./img/islanddetail/hope/2.png" alt=""></div>
+        <div data-shopname="凯利时尚餐厅" class="rectangle" style="left: 3.6%;top: 29.86%;"><img class="icon" src="./img/islanddetail/hope/3.png" alt=""></div>
+        <div data-shopname="科学玩家" class="rectangle" style="left: 63.47%;top: 35.56%;"><img class="icon" src="./img/islanddetail/hope/4.png" alt=""></div>
+        <div data-shopname="梨枣书店" class="rectangle" style="left: 11.6%;top: 37.36%;"><img class="icon" src="./img/islanddetail/hope/5.png" alt=""></div>
+        <div data-shopname="彭厨" class="rectangle" style="left: 3.6%;top: 50.85%;"><img class="icon" src="./img/islanddetail/hope/6.png" alt=""></div>
+        <div data-shopname="萌派儿童摄影" class="rectangle" style="left: 16.4%;top: 43.88%;"><img class="icon" src="./img/islanddetail/hope/7.png" alt=""></div>
+        <div data-shopname="L·Etoile" class="rectangle" style="left:57.47%;top: 42.45%;"><img class="icon" src="./img/islanddetail/hope/8.png" alt=""></div>
+        <div data-shopname="人鱼崛起" class="cyclo" style="left: 13.2%;top: 57.54%;"><img class="icon" src="./img/islanddetail/hope/9.png" alt=""></div>
+        <div data-shopname="一米堡" class="rectangle" style="left: 8.67%;top: 68.89%;"><img class="icon" src="./img/islanddetail/hope/10.png" alt=""></div>
+        <div data-shopname="新鲜" class="cyclo" style="left: 71.2%;top: 60.04%;"><img class="icon" src="./img/islanddetail/hope/11.png" alt=""></div>
+        <div data-shopname="云米全屋互联网家电" class="cyclo" style="left: 38%;top: 70.84%;"><img class="icon" src="./img/islanddetail/hope/12.png" alt=""></div>
+        <div data-shopname="知慧学院" class="rectangle" style="left: 55.47%;top: 70.46%;"><img class="icon" src="./img/islanddetail/hope/13.png" alt=""></div>
+        <div data-shopname="企鹅英语" class="cyclo" style="left: 73.2%;top: 49%;"><img class="icon" src="./img/islanddetail/hope/14.png" alt=""></div>-->
+    </div>
+    <div class="parentchild">
+        <!--<div data-shopname="悦宝园" class="cyclo" style="left: 67.6%;top: 69.94%;"><img class="icon" src="./img/islanddetail/parentchild/1.png" alt=""></div>
+        <div data-shopname="育乐湾" class="cyclo" style="left: 21.07%;top: 64.17%;"><img class="icon" src="./img/islanddetail/parentchild/2.png" alt=""></div>
+        <div data-shopname="Hape玩具" class="cyclo" style="left: 12.27%;top: 33.96%;"><img class="icon" src="./img/islanddetail/parentchild/3.png" alt=""></div>
+        <div data-shopname="初儿乐" class="cyclo" style="left: 67.6%;top: 27.14%;"><img class="icon" src="./img/islanddetail/parentchild/4.png" alt=""></div>
+        <div data-shopname="贝迪堡" class="cyclo" style="left: 26.67%;top: 22.94%;"><img class="icon" src="./img/islanddetail/parentchild/5.png" alt=""></div>
+        <div data-shopname="乐高活动中心" class="rectangle" style="left: 61.47%;top: 42.73%;"><img class="icon" src="./img/islanddetail/parentchild/6.png" alt=""></div>
+        <div data-shopname="宁波科学探索中心" class="rectangle" style="left: 58.27%;top: 52.17%;"><img class="icon" src="./img/islanddetail/parentchild/7.png" alt=""></div>
+        <div data-shopname="宁波文化艺术培训中心" class="rectangle" style="left: 6.8%;top: 48.95%;"><img class="icon" src="./img/islanddetail/parentchild/8.png" alt=""></div>-->
+    </div>
+    <div class="service">
+        <!--<div data-shopname="CGV影城" class="cyclo" style="left: 31.2%;top: 21.59%;"><img class="icon" src="./img/islanddetail/service/1.png" alt=""></div>
+        <div data-shopname="朗豪酒店" class="rectangle" style="left: 53.07%;top: 21.59%;"><img class="icon" src="./img/islanddetail/service/2.png" alt=""></div>
+        <div data-shopname="宁波市智慧城市科技馆" class="cyclo" style="left: 68.67%;top: 27.14%;"><img class="icon" src="./img/islanddetail/service/3.png" alt=""></div>
+        <div data-shopname="小时代量贩式KTV" class="cyclo" style="left: 65.6%;top: 37.48%;"><img class="icon" src="./img/islanddetail/service/4.png" alt=""></div>
+        <div data-shopname="WE+联合办公" class="cyclo" style="left: 69.6%;top: 47.83%;"><img class="icon" src="./img/islanddetail/service/5.png" alt=""></div>
+        <div data-shopname="3M车饰" class="cyclo" style="left: 68.67%;top: 64.62%;"><img class="icon" src="./img/islanddetail/service/6.png" alt=""></div>
+        &lt;!&ndash;<div class="cyclo" style="left: 21.87%;top: 70.69%;"><img class="icon" src="./img/islanddetail/service/7.png" alt=""></div>&ndash;&gt;
+        &lt;!&ndash;<div class="cyclo" style="left: 11.6%;top: 62.74%;"><img class="icon" src="./img/islanddetail/service/8.png" alt=""></div>&ndash;&gt;
+        <div data-shopname="招商银行" class="cyclo" style="left: 13.6%;top: 65.74%;"><img class="icon" src="./img/islanddetail/service/7.png" alt=""></div>
+        <div data-shopname="氧动力" class="cyclo" style="left: 12.8%;top: 47.23%;"><img class="icon" src="./img/islanddetail/service/8.png" alt=""></div>
+        <div data-shopname="盛世方舟" class="cyclo" style="left: 14%;top: 37.03%;"><img class="icon" src="./img/islanddetail/service/9.png" alt=""></div>
+        <div data-shopname="宁波文化广场大剧院" class="rectangle" style="left: 7.6%;top: 30.96%;"><img class="icon" src="./img/islanddetail/service/10.png" alt=""></div>
+        <div data-shopname="宁波云医院" class="rectangle" style="left: 3.87%;top: 57.42%;"><img class="icon" src="./img/islanddetail/service/11.png" alt=""></div>
+        &lt;!&ndash;<div class="rectangle" style="left: 40.67%;top: 72.49%;"><img class="icon" src="./img/islanddetail/service/13.png" alt=""></div>&ndash;&gt;
+        <div data-shopname="中信银行" class="rectangle" style="left: 35.67%;top: 72.49%;"><img class="icon" src="./img/islanddetail/service/12.png" alt=""></div>
+        <div data-shopname="宁波福彩文化体验馆" class="rectangle" style="left: 69.6%;top: 59%;"><img class="icon" src="./img/islanddetail/service/13.png" alt=""></div>-->
+    </div>
+    <div class="retail">
+        <!--<div data-shopname="厨源文化体验馆" class="rectangle" style="left: 7.87%;top: 31.26%;"><img class="icon" src="./img/islanddetail/retail/1.png" alt=""></div>
+        <div data-shopname="罗森便利店" class="rectangle" style="left: 6.8%;top: 38.46%;"><img class="icon" src="./img/islanddetail/retail/2.png" alt=""></div>
+        <div data-shopname="“十里红妆”书香生活馆" class="rectangle" style="left: 8.67%;top: 55.3%;"><img class="icon" src="./img/islanddetail/retail/3.png" alt=""></div>
+        <div data-shopname="银缘堂" class="rectangle" style="left: 38.07%;top: 72.19%;"><img class="icon" src="./img/islanddetail/retail/4.png" alt=""></div>
+        <div data-shopname="Vento" class="rectangle" style="left: 65.07%;top: 61.62%;"><img class="icon" src="./img/islanddetail/retail/5.png" alt=""></div>
+        <div data-shopname="萌果激光电视体验店" class="rectangle" style="left: 61.07%;top: 44.53%;"><img class="icon" src="./img/islanddetail/retail/6.png" alt=""></div>
+        <div data-shopname="鸣文阁" class="cyclo" style="left: 18.67%;top: 44.55%;"><img class="icon" src="./img/islanddetail/retail/7.png" alt=""></div>
+        <div data-shopname="喜士多" class="cyclo" style="left: 14.67%;top: 62.92%;"><img class="icon" src="./img/islanddetail/retail/8.png" alt=""></div>
+        &lt;!&ndash;<div class="cyclo" style="left: 28.4%;top: 64.99%;"><img class="icon" src="./img/islanddetail/retail/9.png" alt=""></div>&ndash;&gt;
+        <div data-shopname="艺羽茶隐" class="cyclo" style="left: 72.4%;top: 66.79%;"><img class="icon" src="./img/islanddetail/retail/9.png" alt=""></div>
+        <div data-shopname="生活定义" class="cyclo" style="left: 75.87%;top: 50%;"><img class="icon" src="./img/islanddetail/retail/10.png" alt=""></div>
+        <div data-shopname="老婆大人" class="rectangle" style="left: 58.4%;top: 36.63%;"><img class="icon" src="./img/islanddetail/retail/11.png" alt=""></div>
+        <div data-shopname="快客" class="cyclo" style="left: 52.4%;top: 25.86%;"><img class="icon" src="./img/islanddetail/retail/12.png" alt=""></div>
+        <div data-shopname="超级物种" class="cyclo" style="left: 32%;top: 22.26%;"><img class="icon" src="./img/islanddetail/retail/13.png" alt=""></div>-->
+    </div>
+    <div class="relish">
+        <!--<div data-shopname="阿毛饭店" class="cyclo" style="left: 29.47%;top: 22.86%;"><img class="icon" src="./img/islanddetail/relish/1.png" alt=""></div>
+        <div data-shopname="成功再回首" class="cyclo" style="left: 70.67%;top: 25.19%;"><img class="icon" src="./img/islanddetail/relish/2.png" alt=""></div>
+        <div data-shopname="海味世家" class="cyclo" style="left: 16.4%;top: 30.58%;"><img class="icon" src="./img/islanddetail/relish/3.png" alt=""></div>
+        <div data-shopname="肯德基" class="cyclo" style="left: 26.4%;top: 40.7%;"><img class="icon" src="./img/islanddetail/relish/4.png" alt=""></div>
+        <div data-shopname="上一水产" class="rectangle" style="left: 44.67%;top: 74.06%;"><img class="icon" src="./img/islanddetail/relish/5.png" alt=""></div>
+        <div data-shopname="秋田家日本料理" class="cyclo" style="left: 16.4%;top: 50%;"><img class="icon" src="./img/islanddetail/relish/6.png" alt=""></div>
+        <div data-shopname="五号便当" class="cyclo" style="left: 12.4%;top: 61.24%;"><img class="icon" src="./img/islanddetail/relish/7.png" alt=""></div>
+        <div data-shopname="绣粤" class="cyclo" style="left: 26.4%;top: 68.22%;"><img class="icon" src="./img/islanddetail/relish/8.png" alt=""></div>
+        <div data-shopname="胜面" class="cyclo" style="left: 67.2%;top: 63.72%;"><img class="icon" src="./img/islanddetail/relish/9.png" alt=""></div>
+        <div data-shopname="临安府" class="cyclo" style="left: 76.67%;top: 55.1%;"><img class="icon" src="./img/islanddetail/relish/10.png" alt=""></div>
+        <div data-shopname="酱小七" class="cyclo" style="left: 77.47%;top: 44.9%;"><img class="icon" src="./img/islanddetail/relish/11.png" alt=""></div>
+        <div data-shopname="锅物优选" class="cyclo" style="left: 69.87%;top: 36.13%;"><img class="icon" src="./img/islanddetail/relish/12.png" alt=""></div>-->
+    </div>
+</div>
+<div class="bottom">
+    <div style="position: relative;width: 1.94rem;height: .79rem">
+        <img src="./img/islanddetail/submit.png" alt="" class="submit">
+        <img src="./img/hand.png" alt="" style="width: .83rem;height: .91rem;position: absolute;right: 0;bottom: 0;transform: translate(20%,70%)">
+    </div>
+    <img src="./img/islanddetail/back.png" alt="" class="back">
+</div>
+<div class="result">
+    <div class="submitok">
+        <img src="./img/islanddetail/submitok.png" alt="" class="submitokimg">
+        <img src="./img/islanddetail/close1.png" alt="" class="okclose">
+    </div>
+    <div class="submitno">
+        <img src="./img/islanddetail/submitno.png" alt="" class="submitnoimg">
+        <img src="./img/islanddetail/close1.png" alt="" class="noclose">
+    </div>
+</div>
+<audio src="./audio/toupiao.mp3" preload="auto" class="musicaudio" style="display: none"></audio>
+<div class="backgroundget" style="position: fixed;left: 0;top:0;width: 100%;height: 100%;z-index: -1"></div>
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/fingerprint.js"></script>
+<script>
+    /*var json = {
+        first:'a',// 品格生活life
+        second:'b',//期待hope
+        third:'c',//亲子parentchild
+        fourth:'d',//最佳服务service
+        five:'e',//最佳零售retail
+        six:'f',//最具风味relish
+        seven:'g',
+        id:'sfsl'
+    }*/
+    var lifestr = '<div data-shopname="La Rêveuse" class="rectangle" style="left: 8%;top: 45.8%;"><img class="icon" src="./img/islanddetail/life/1.png" alt=""></div>\n' +
+        '        <div data-shopname="Andy的面包与奶酪" class="cyclo" style="left: 26.4%;top: 25.19%;"><img class="icon" src="./img/islanddetail/life/2.png" alt=""></div>\n' +
+        '        <div data-shopname="蛋糕爆炸" class="cyclo" style="left: 17.07%;top: 33.28%;"><img class="icon" src="./img/islanddetail/life/3.png" alt=""></div>\n' +
+        '        <div data-shopname="cococ cafe" class="cyclo" style="left: 65.07%;top: 35.08%;"><img class="icon" src="./img/islanddetail/life/4.png" alt=""></div>\n' +
+        '        <div data-shopname="马克丹尼" class="rectangle" style="left: 11.47%;top: 52.77%;"><img class="icon" src="./img/islanddetail/life/5.png" alt=""></div>\n' +
+        '        <div data-shopname="鹿谷制茶" class="rectangle" style="left: 60.27%;top: 46.93%;"><img class="icon" src="./img/islanddetail/life/6.png" alt=""></div>\n' +
+        '        <div data-shopname="树叶" class="cyclo" style="left: 73.6%;top: 54.27%;"><img class="icon" src="./img/islanddetail/life/7.png" alt=""></div>\n' +
+        '        <div data-shopname="Tea Co. Lab" class="rectangle" style="left: 6.13%;top: 62.52%;"><img class="icon" src="./img/islanddetail/life/8.png" alt=""></div>\n' +
+        '        <div data-shopname="C2精品烘焙" class="cyclo" style="left: 55.2%;top: 25.04%;"><img class="icon" src="./img/islanddetail/life/9.png" alt=""></div>\n' +
+        '        <div data-shopname="星巴克" class="cyclo" style="left: 30.13%;top: 71.36%;"><img class="icon" src="./img/islanddetail/life/10.png" alt=""></div>\n' +
+        '        <div data-shopname="一鸣真鲜奶吧" class="cyclo" style="left: 60.27%;top: 69.12%;"><img class="icon" src="./img/islanddetail/life/11.png" alt=""></div>';
+    var hopestr = '<div data-shopname="教冠好书店" class="cyclo" style="left: 71.2%;top: 24.21%;"><img class="icon" src="./img/islanddetail/hope/1.png" alt=""></div>\n' +
+        '        <div data-shopname="长颈鹿美语" class="cyclo" style="left: 35.6%;top: 21.06%;"><img class="icon" src="./img/islanddetail/hope/2.png" alt=""></div>\n' +
+        '        <div data-shopname="凯利时尚餐厅" class="rectangle" style="left: 3.6%;top: 29.86%;"><img class="icon" src="./img/islanddetail/hope/3.png" alt=""></div>\n' +
+        '        <div data-shopname="科学玩家" class="rectangle" style="left: 63.47%;top: 35.56%;"><img class="icon" src="./img/islanddetail/hope/4.png" alt=""></div>\n' +
+        '        <div data-shopname="梨枣书店" class="rectangle" style="left: 11.6%;top: 37.36%;"><img class="icon" src="./img/islanddetail/hope/5.png" alt=""></div>\n' +
+        '        <div data-shopname="彭厨" class="rectangle" style="left: 3.6%;top: 50.85%;"><img class="icon" src="./img/islanddetail/hope/6.png" alt=""></div>\n' +
+        '        <div data-shopname="萌派儿童摄影" class="rectangle" style="left: 16.4%;top: 43.88%;"><img class="icon" src="./img/islanddetail/hope/7.png" alt=""></div>\n' +
+        '        <div data-shopname="L·Etoile" class="rectangle" style="left:57.47%;top: 42.45%;"><img class="icon" src="./img/islanddetail/hope/8.png" alt=""></div>\n' +
+        '        <div data-shopname="人鱼崛起" class="cyclo" style="left: 13.2%;top: 57.54%;"><img class="icon" src="./img/islanddetail/hope/9.png" alt=""></div>\n' +
+        '        <div data-shopname="一米堡" class="rectangle" style="left: 8.67%;top: 68.89%;"><img class="icon" src="./img/islanddetail/hope/10.png" alt=""></div>\n' +
+        '        <div data-shopname="新鲜" class="cyclo" style="left: 71.2%;top: 60.04%;"><img class="icon" src="./img/islanddetail/hope/11.png" alt=""></div>\n' +
+        '        <div data-shopname="云米全屋互联网家电" class="cyclo" style="left: 38%;top: 70.84%;"><img class="icon" src="./img/islanddetail/hope/12.png" alt=""></div>\n' +
+        '        <div data-shopname="知慧学院" class="rectangle" style="left: 55.47%;top: 70.46%;"><img class="icon" src="./img/islanddetail/hope/13.png" alt=""></div>\n' +
+        '        <div data-shopname="企鹅英语" class="cyclo" style="left: 73.2%;top: 49%;"><img class="icon" src="./img/islanddetail/hope/14.png" alt=""></div>'
+    var parentchildstr = '<div data-shopname="悦宝园" class="cyclo" style="left: 67.6%;top: 69.94%;"><img class="icon" src="./img/islanddetail/parentchild/1.png" alt=""></div>\n' +
+        '        <div data-shopname="育乐湾" class="cyclo" style="left: 21.07%;top: 64.17%;"><img class="icon" src="./img/islanddetail/parentchild/2.png" alt=""></div>\n' +
+        '        <div data-shopname="Hape玩具" class="cyclo" style="left: 12.27%;top: 33.96%;"><img class="icon" src="./img/islanddetail/parentchild/3.png" alt=""></div>\n' +
+        '        <div data-shopname="初儿乐" class="cyclo" style="left: 67.6%;top: 27.14%;"><img class="icon" src="./img/islanddetail/parentchild/4.png" alt=""></div>\n' +
+        '        <div data-shopname="贝迪堡" class="cyclo" style="left: 26.67%;top: 22.94%;"><img class="icon" src="./img/islanddetail/parentchild/5.png" alt=""></div>\n' +
+        '        <div data-shopname="乐高活动中心" class="rectangle" style="left: 61.47%;top: 42.73%;"><img class="icon" src="./img/islanddetail/parentchild/6.png" alt=""></div>\n' +
+        '        <div data-shopname="宁波科学探索中心" class="rectangle" style="left: 58.27%;top: 52.17%;"><img class="icon" src="./img/islanddetail/parentchild/7.png" alt=""></div>\n' +
+        '        <div data-shopname="宁波文化艺术培训中心" class="rectangle" style="left: 6.8%;top: 48.95%;"><img class="icon" src="./img/islanddetail/parentchild/8.png" alt=""></div>'
+    var servicestr = ' <div data-shopname="CGV影城" class="cyclo" style="left: 31.2%;top: 21.59%;"><img class="icon" src="./img/islanddetail/service/1.png" alt=""></div>\n' +
+        '        <div data-shopname="朗豪酒店" class="rectangle" style="left: 53.07%;top: 21.59%;"><img class="icon" src="./img/islanddetail/service/2.png" alt=""></div>\n' +
+        '        <div data-shopname="宁波市智慧城市科技馆" class="cyclo" style="left: 68.67%;top: 27.14%;"><img class="icon" src="./img/islanddetail/service/3.png" alt=""></div>\n' +
+        '        <div data-shopname="小时代量贩式KTV" class="cyclo" style="left: 65.6%;top: 37.48%;"><img class="icon" src="./img/islanddetail/service/4.png" alt=""></div>\n' +
+        '        <div data-shopname="WE+联合办公" class="cyclo" style="left: 69.6%;top: 47.83%;"><img class="icon" src="./img/islanddetail/service/5.png" alt=""></div>\n' +
+        '        <div data-shopname="3M车饰" class="cyclo" style="left: 68.67%;top: 64.62%;"><img class="icon" src="./img/islanddetail/service/6.png" alt=""></div>\n' +
+        '        <div data-shopname="招商银行" class="cyclo" style="left: 13.6%;top: 65.74%;"><img class="icon" src="./img/islanddetail/service/7.png" alt=""></div>\n' +
+        '        <div data-shopname="氧动力" class="cyclo" style="left: 12.8%;top: 47.23%;"><img class="icon" src="./img/islanddetail/service/8.png" alt=""></div>\n' +
+        '        <div data-shopname="盛世方舟" class="cyclo" style="left: 14%;top: 37.03%;"><img class="icon" src="./img/islanddetail/service/9.png" alt=""></div>\n' +
+        '        <div data-shopname="宁波文化广场大剧院" class="rectangle" style="left: 7.6%;top: 30.96%;"><img class="icon" src="./img/islanddetail/service/10.png" alt=""></div>\n' +
+        '        <div data-shopname="宁波云医院" class="rectangle" style="left: 3.87%;top: 57.42%;"><img class="icon" src="./img/islanddetail/service/11.png" alt=""></div>\n' +
+        '        <div data-shopname="中信银行" class="rectangle" style="left: 35.67%;top: 72.49%;"><img class="icon" src="./img/islanddetail/service/12.png" alt=""></div>\n' +
+        '        <div data-shopname="宁波福彩文化体验馆" class="rectangle" style="left: 69.6%;top: 59%;"><img class="icon" src="./img/islanddetail/service/13.png" alt=""></div>'
+    var retailstr = ' <div data-shopname="厨源文化体验馆" class="rectangle" style="left: 7.87%;top: 31.26%;"><img class="icon" src="./img/islanddetail/retail/1.png" alt=""></div>\n' +
+        '        <div data-shopname="罗森便利店" class="rectangle" style="left: 6.8%;top: 38.46%;"><img class="icon" src="./img/islanddetail/retail/2.png" alt=""></div>\n' +
+        '        <div data-shopname="“十里红妆”书香生活馆" class="rectangle" style="left: 8.67%;top: 55.3%;"><img class="icon" src="./img/islanddetail/retail/3.png" alt=""></div>\n' +
+        '        <div data-shopname="银缘堂" class="rectangle" style="left: 38.07%;top: 72.19%;"><img class="icon" src="./img/islanddetail/retail/4.png" alt=""></div>\n' +
+        '        <div data-shopname="Vento" class="rectangle" style="left: 65.07%;top: 61.62%;"><img class="icon" src="./img/islanddetail/retail/5.png" alt=""></div>\n' +
+        '        <div data-shopname="萌果激光电视体验店" class="rectangle" style="left: 61.07%;top: 44.53%;"><img class="icon" src="./img/islanddetail/retail/6.png" alt=""></div>\n' +
+        '        <div data-shopname="鸣文阁" class="cyclo" style="left: 18.67%;top: 44.55%;"><img class="icon" src="./img/islanddetail/retail/7.png" alt=""></div>\n' +
+        '        <div data-shopname="喜士多" class="cyclo" style="left: 14.67%;top: 62.92%;"><img class="icon" src="./img/islanddetail/retail/8.png" alt=""></div>\n' +
+        '        <!--<div class="cyclo" style="left: 28.4%;top: 64.99%;"><img class="icon" src="./img/islanddetail/retail/9.png" alt=""></div>-->\n' +
+        '        <div data-shopname="艺羽茶隐" class="cyclo" style="left: 72.4%;top: 66.79%;"><img class="icon" src="./img/islanddetail/retail/9.png" alt=""></div>\n' +
+        '        <div data-shopname="生活定义" class="cyclo" style="left: 75.87%;top: 50%;"><img class="icon" src="./img/islanddetail/retail/10.png" alt=""></div>\n' +
+        '        <div data-shopname="老婆大人" class="rectangle" style="left: 58.4%;top: 36.63%;"><img class="icon" src="./img/islanddetail/retail/11.png" alt=""></div>\n' +
+        '        <div data-shopname="快客" class="cyclo" style="left: 52.4%;top: 25.86%;"><img class="icon" src="./img/islanddetail/retail/12.png" alt=""></div>\n' +
+        '        <div data-shopname="超级物种" class="cyclo" style="left: 32%;top: 22.26%;"><img class="icon" src="./img/islanddetail/retail/13.png" alt=""></div>'
+    var relishstr = '<div data-shopname="阿毛饭店" class="cyclo" style="left: 29.47%;top: 22.86%;"><img class="icon" src="./img/islanddetail/relish/1.png" alt=""></div>\n' +
+        '        <div data-shopname="成功再回首" class="cyclo" style="left: 70.67%;top: 25.19%;"><img class="icon" src="./img/islanddetail/relish/2.png" alt=""></div>\n' +
+        '        <div data-shopname="海味世家" class="cyclo" style="left: 16.4%;top: 30.58%;"><img class="icon" src="./img/islanddetail/relish/3.png" alt=""></div>\n' +
+        '        <div data-shopname="肯德基" class="cyclo" style="left: 26.4%;top: 40.7%;"><img class="icon" src="./img/islanddetail/relish/4.png" alt=""></div>\n' +
+        '        <div data-shopname="上一水产" class="rectangle" style="left: 44.67%;top: 74.06%;"><img class="icon" src="./img/islanddetail/relish/5.png" alt=""></div>\n' +
+        '        <div data-shopname="秋田家日本料理" class="cyclo" style="left: 16.4%;top: 50%;"><img class="icon" src="./img/islanddetail/relish/6.png" alt=""></div>\n' +
+        '        <div data-shopname="五号便当" class="cyclo" style="left: 12.4%;top: 61.24%;"><img class="icon" src="./img/islanddetail/relish/7.png" alt=""></div>\n' +
+        '        <div data-shopname="绣粤" class="cyclo" style="left: 26.4%;top: 68.22%;"><img class="icon" src="./img/islanddetail/relish/8.png" alt=""></div>\n' +
+        '        <div data-shopname="胜面" class="cyclo" style="left: 67.2%;top: 63.72%;"><img class="icon" src="./img/islanddetail/relish/9.png" alt=""></div>\n' +
+        '        <div data-shopname="临安府" class="cyclo" style="left: 76.67%;top: 55.1%;"><img class="icon" src="./img/islanddetail/relish/10.png" alt=""></div>\n' +
+        '        <div data-shopname="酱小七" class="cyclo" style="left: 77.47%;top: 44.9%;"><img class="icon" src="./img/islanddetail/relish/11.png" alt=""></div>\n' +
+        '        <div data-shopname="锅物优选" class="cyclo" style="left: 69.87%;top: 36.13%;"><img class="icon" src="./img/islanddetail/relish/12.png" alt=""></div>'
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            // playbirdbg()
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                playbirdbg()
+                // document.querySelector('.musicaudio').src = './audio/toupiao.mp3'
+                document.querySelector('.musicaudio').play()
+                document.querySelector('.musicaudio').pause()
+            }, false);
+        }
+        audioAutoPlay();
+    });
+
+    if(!sessionStorage.ischeck){
+        location.replace('./exploring.html')
+    }
+    var type;
+    if(location.href.split('?')[1]){
+        location.href.split('?')[1].split('&').forEach((item)=>{
+            if(item.split('=')[0]=='type'){
+                type = item.split('=')[1];
+            }
+        })
+    }
+
+    var imgpath;
+    var getstr = ''
+    switch (type){
+        case 'first':imgpath = 'life';getstr=lifestr;break;
+        case 'second':imgpath = 'hope';getstr=hopestr;break;
+        case 'third':imgpath = 'parentchild';getstr=parentchildstr;break;
+        case 'fourth':imgpath = 'service';getstr=servicestr;break;
+        case 'five':imgpath = 'retail';getstr=retailstr;break;
+        case 'six':imgpath = 'relish';getstr=relishstr;break;
+    }
+    /*$('body').css({'background':'url("./img/islanddetail/'+imgpath+'/background.jpg") center center no-repeat',
+        'backgroundSize':'100% 100%'})*/
+    $(".backgroundget").html('<img src="./img/islanddetail/'+imgpath+'/background.jpg" style="width: 100%;height: 100%"/>')
+    $('.'+imgpath).html(getstr)
+    var submitflag = true;
+    if(localStorage.user){
+        var json = JSON.parse(localStorage.user);
+        if(json[type] == true){
+            $(".all").css('pointer-events','none');
+            redloacation = $('<img/>');
+            redloacation.attr("src",'./img/chooceicon.png');
+            redloacation.css({width:0.23*1.3+'rem',height:0.3*1.3+'rem',position:'absolute',top:'-0.7rem',left:'50%',transform:'translateX(-50%)',zIndex:99});
+            redloacation.addClass('redloacation')
+            $('.'+imgpath+'>div').each(function(index,item){
+                if($(this).data("shopname") == json[type+'name']){
+                    $(this).append(redloacation)
+                }
+            })
+
+            submitflag = false;
+        }
+    }
+    window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+    $(function () {
+        // playbirdbg();
+        $('.'+imgpath).css('display','block')
+        $(".all").on('touchstart','img',function (e) {
+            var e = e || event;
+            if($('.redloacation').length > 0){
+                $('.redloacation').remove();
+            }
+            redloacation = $('<img/>');
+            redloacation.attr("src",'./img/chooceicon.png');
+            redloacation.css({width:0.23*1.3+'rem',height:0.3*1.3+'rem',position:'absolute',top:'-0.7rem',left:'50%',transform:'translateX(-50%)',zIndex:99});
+            redloacation.addClass('redloacation')
+            $(this).before(redloacation)
+        })
+        $(".back").on('click',function (e) {
+            location.replace('./chooceisland.html?nowisland='+type);
+        })
+        $(".submit").on('touchstart',function (e) {
+            if(submitflag){
+                document.querySelector('.musicaudio').currentTime = 0;
+                document.querySelector('.musicaudio').play()
+                if($('.redloacation').length > 0){
+                    if(localStorage.user){
+                        var json = JSON.parse(localStorage.user)
+                        json.islandprocess+=1;
+
+                    }else{
+                        var json = {
+                            id:new Fingerprint().get()+''+localStorage.selfid,
+                            islandprocess:1,
+                            first:false,
+                            second:false,
+                            third:false,
+                            fourth:false,
+                            five:false,
+                            six:false,
+                            seven:false,
+                        }
+                    }
+                    json[type] = true
+                    json[type+'name'] = $('.redloacation').parent().data('shopname');
+                    localStorage.user = JSON.stringify(json)
+                    $('.result').show();
+                    $('.submitok').show();
+                }else{
+                    $('.result').show();
+                    $('.submitno').show();
+                }
+            }
+        })
+        //submitno
+        console.log(new Fingerprint().get())
+        $('.noclose').on('touchstart',function () {
+            $('.result').hide();
+            $('.submitno').hide();
+        })
+        $('.okclose').on('touchstart',function () {
+            location.replace('./chooceisland.html?nowisland='+type);
+        })
+    })
+</script>

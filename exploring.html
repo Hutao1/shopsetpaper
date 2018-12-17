@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宁波文化广场-领航行动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+</head>
+<script src="./js/public.js"></script>
+<link rel="stylesheet" href="./css/public.css">
+<style>
+    body{
+        background: url("./img/exploring/background1.jpg") center center no-repeat;
+        background-size: 100% 100%;
+    }
+    /*.bird{
+        width: 3.41rem;height: 1.52rem;
+        position: absolute;
+        left: 50%;top: 4%;
+        -webkit-animation:birdmove 2s ease infinite alternate;
+        -moz-animation:birdmove 2s ease infinite alternate;
+        -o-animation:birdmove 2s ease infinite alternate;
+        animation:birdmove 2s ease infinite alternate;
+    }*/
+    /*.birdsmall{
+        width: 1.34rem;height: .58rem;
+        position: absolute;
+        left: 65%;
+        top: 5%;
+    }*/
+    .boatsmall{
+        width: 6.78rem;
+        height: 4.16rem;
+        position: absolute;
+        left:5%;
+        top:50%;
+        -webkit-animation:boatmove 1s ease-in-out infinite alternate;
+        -moz-animation:boatmove 1s ease-in-out infinite alternate;
+        -o-animation:boatmove 1s ease-in-out infinite alternate;
+        animation:boatmove 1s ease-in-out infinite alternate;
+    }
+    .boatbig{
+        width: 47.74%;
+        height: 26.88%;
+        position: absolute;
+        left:5%;
+        top:50%;
+        -webkit-animation:boatbigmove 1.5s ease-in-out infinite alternate;
+        -moz-animation:boatbigmove 1.5s ease-in-out infinite alternate;
+        -o-animation:boatbigmove 1.5s ease-in-out infinite alternate;
+        animation:boatbigmove 1.5s ease-in-out infinite alternate;
+    }
+    .light{
+        width: 2.7rem;
+        height: 2.48rem;
+        position: absolute;
+        left: 50%;
+        top: 79%;
+        transform: translateX(-50%);
+    }
+    /*@keyframes birdmove
+    {
+        0%   {left:10%;top: 10%;}
+        100% {left: 10%;top: 13%;}
+    }*/
+    @keyframes boatmove {
+        0%   {left:4.8%;top:49.8%;}
+        100% {left:5.2%;top:50.2%;}
+    }
+    @keyframes boatbigmove {
+        0%   {left:40%;top:43.2%;}
+        100% {left:39%;top:42.8%;}
+    }
+</style>
+<body>
+<img src="./img/logo.png" class="logo" alt="">
+<!--<img src="./img/index/birdsmall.png" alt="" class="birdsmall">-->
+<!--<img src="./img/index/birdbig.png" alt="" class="bird">-->
+<!--<img src="./img/exploring/boat.png" alt="" class="boat">-->
+<img src="./img/exploring/boatsmall.png" alt="" class="boatsmall">
+<img src="./img/exploring/boatbig.png" alt="" class="boatbig">
+<div class="light">
+    <img src="./img/exploring/light.png" alt="" style="width: 100%;height: 100%">
+    <img src="./img/hand.png" alt="" style="width: .83rem;height: .91rem;position: absolute;right: 0;bottom: 0;transform: translate(20%,20%)">
+</div>
+<div class="playmusic" style="position: absolute;z-index: -2;width: .1rem;height: .1rem;background: #fff"></div>
+<!--<div style="position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%)" class="id"></div>-->
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/fingerprint.js"></script>
+<script src="./js/interfaceUrl.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            // playbirdbg()
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                playbirdbg()
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    // localStorage.removeItem('selfid')
+    randomid();
+    //阻止微信浏览器滑动
+    window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+    $(function () {
+        // playbirdbg()
+        // 解决ios音乐不自动播放的问题
+        $(".light").click(function () {
+            location.replace('./rule.html')
+        })
+        // $('.id').html(new Fingerprint().get())
+    })
+    $.ajax({
+        type:'post',
+        url: USERMESSAGE.queryUser,
+        data: JSON.stringify({"data":new Fingerprint().get()+''+localStorage.selfid}),
+        // data: JSON.stringify({"data":'10000001'}),
+        contentType: "application/json; charset=utf-8",
+        success: function (res) {
+            sessionStorage.ischeck = true;
+            // alert(res.msg)
+            if(res.code == 0){
+                if((res.data.progress == 1)||(res.data.progress == 2)){
+                    location.replace('./result.html');
+                }
+            }
+        },
+    });
+    /*var json = {
+        first:'a',// 品格生活
+        second:'b',//期待
+        third:'c',//亲子
+        fourth:'d',//最佳服务
+        five:'e',//最佳零售
+        six:'f',//最具风味
+        seven:'g',
+        id:'sfsl'
+    }*/
+    function randomid(){
+        if(!localStorage.selfid){
+            localStorage.selfid = randomnum(100000,999999);
+        }
+    }
+
+    function randomnum(min,max) {
+        var num = Math.floor(Math.random()*(max-min+1)+min);
+        return num;
+    }
+</script>

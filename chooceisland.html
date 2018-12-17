@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宁波文化广场-领航行动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+</head>
+<script src="./js/public.js"></script>
+<link rel="stylesheet" href="./css/public.css">
+<style>
+    body{
+        background: url("img/chooceisland/background2.jpg") center center no-repeat;
+        background-size: 100% 100%;
+    }
+    .touchIsland{
+        height: 100%;
+        position: relative;
+    }
+    .touchIsland>.img{
+        width: 2rem;
+        height: 1.9rem;
+        position: absolute;
+        /*transform: scale();*/
+        /*-webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        -moz-transition: all 1s ease; !* Firefox 4 *!
+        -o-transition:all 1s ease; !* Opera *!*/
+    }
+    .island{
+        width: 100%;
+        height: 100%;
+    }
+    .clickimg{
+        width: 2.03rem;
+        height: 2.02rem;
+        position: absolute;
+        bottom: 10%;
+        left: 7%;
+        z-index: 99;
+    }
+    .cutimg{
+        width: 1.61rem;
+        height: 2.11rem;
+        position: absolute;
+        bottom: 35%;
+        right: 7%;
+        z-index: 99;
+    }
+    .redloacation{
+        -webkit-animation:loationmove 0.8s ease infinite alternate;
+        -moz-animation:loationmove 0.8s ease infinite alternate;
+        -o-animation:loationmove 0.8s ease infinite alternate;
+        animation:loationmove 0.8s ease infinite alternate;
+    }
+    .topmove{
+        margin-top: -.1rem;
+    }
+    .bottommove{
+        margin-top: .1rem;
+    }
+    .result{
+        background: rgba(0,0,0,0.6);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        display: none;
+    }
+    .selectactive{
+        width: 80%;
+        height: 1rem;
+        margin: 0 auto;
+    }
+    .leftshow{
+        width: 5rem;
+        background:url("./img/chooceisland/under.png") #cae5fd 93% center no-repeat;
+        background-size: .5rem .56rem;
+        height: 1rem;
+        border-top-left-radius:.2rem ;
+        border-bottom-left-radius:.2rem ;
+        font-size: .3rem;
+        color: #073e72;
+        padding-right: 1rem;
+        padding-left: .3rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .rightshow{
+        background: #76a8f9;
+        height: 1rem;
+        border-top-right-radius:.2rem ;
+        border-bottom-right-radius:.2rem ;
+        flex: 1;
+        font-size: .35rem;
+        font-weight: bold;
+        color: #fff;
+    }
+    .choocecontent{
+        height: 5rem;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        width: 5rem;
+        background: #fff;
+        overflow-y: auto;
+        display: none;
+    }
+    .choocecontent>div{
+        width: 100%;
+        height: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @keyframes loationmove
+    {
+        0%   {top:.1rem ;}
+        100% {top:-.1rem;}
+    }
+</style>
+<body>
+<img src="./img/logo.png" class="logo" alt="">
+<div class="touchIsland">
+    <div class="img second"  data-type="second">
+        <img src="img/chooceisland/island4.png" alt="" class="island"/>
+    </div>
+    <div class="img five"  data-type="five">
+        <img src="img/chooceisland/island3.png" alt="" class="island"/>
+    </div>
+    <div class="img six"  data-type="six">
+        <img src="img/chooceisland/island5.png" alt="" class="island"/>
+    </div>
+    <div class="img third"  data-type="third">
+        <img src="img/chooceisland/island1.png" alt="" class="island"/>
+    </div>
+    <div class="img first"  data-type="first">
+        <img src="img/chooceisland/island6.png" alt="" class="island"/>
+    </div>
+    <div class="img fourth"  data-type="fourth">
+        <img src="img/chooceisland/island2.png" alt="" class="island"/>
+    </div>
+</div>
+<img src="./img/chooceisland/click.png" alt="" class="clickimg">
+<img src="./img/chooceisland/cut.png" alt="" class="cutimg">
+<div class="result">
+    <img src="./img/chooceisland/popularity1.png" alt="" style="width: 100%">
+    <div class="selectactive flex">
+        <div class="leftshow flex contentcenter"><span class="showcontent">Andy的面包与奶酪</span>
+            <div class="choocecontent">
+
+            </div>
+        </div>
+        <div class="rightshow flex contentcenter">投票</div>
+    </div>
+</div>
+<audio src="./audio/touch.mp3" preload="auto" class="musicaudio" style="display: none"></audio>
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/interfaceUrl.js"></script>
+<script src="./js/fingerprint.js"></script>
+<!--<script src="./js/jquery.mobile.custom.min.js"></script>-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            // playbirdbg()
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                playbirdbg()
+                // document.querySelector('.musicaudio').src = './audio/touch.mp3'
+                document.querySelector('.musicaudio').play()
+                document.querySelector('.musicaudio').pause()
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    /*var json = {
+        first:'a',// 品格生活life
+        second:'b',//期待hope
+        third:'c',//亲子parentchild
+        fourth:'d',//最佳服务service
+        five:'e',//最佳零售retail
+        six:'f',//最具风味relish
+        seven:'g',
+        id:'sfsl'
+    }*/
+    // alert(sessionStorage.ischeck)
+    if(!sessionStorage.ischeck){
+        location.replace('./exploring.html')
+    }
+    var num =0;
+    //记录
+    var type;
+    if(location.href.split('?')[1]){
+        location.href.split('?')[1].split('&').forEach((item)=>{
+            if(item.split('=')[0]=='nowisland'){
+                type = item.split('=')[1];
+            }
+        })
+    }else{
+        type = 0
+    }
+//type为位置
+    if(type != 0){
+        type = $('.'+type).index()>=0?$('.'+type).index():0
+        console.log(type)
+        num-=type;
+    }
+
+
+    // sessionStorage.name = 'hutao'
+    var shoplist = ["Andy的面包与奶酪", "阿毛饭店", "贝迪堡", "C2精品烘焙", "CGV影城", "cococ cafe", "超级物种", "成功再回首", "初儿乐", "厨源文化体验馆", "蛋糕爆炸", "锅物优选", "Hape玩具", "海味世家", "酱小七", "教冠好书店", "凯利时尚餐厅", "科学玩家", "肯德基", "快客", "朗豪酒店", "L·Etoile", "La Rêveuse", "老婆大人", "乐高活动中心", "梨枣书店", "临安府", "鹿谷制茶", "罗森便利店", "3M车饰", "马克丹尼 ", "萌果激光电视体验店", "萌派儿童摄影", "鸣文阁", "宁波福彩文化体验馆", "宁波科学探索中心", "宁波市智慧城市科技馆", "宁波文化广场大剧院", "宁波文化艺术培训中心", "宁波云医院", "彭厨", "企鹅英语", "秋田家日本料理", "人鱼崛起", "上一水产", "生活定义", "胜面", "盛世方舟", "十里红妆”书香生活馆", "树叶", "Tea Co. Lab", "Vento", "WE+联合办公", "五号便当", "喜士多", "小时代量贩式KTV", "新鲜", "星巴克", "绣粤", "氧动力", "一米堡", "一鸣真鲜奶吧", "艺羽茶隐", "银缘堂", "育乐湾", "悦宝园", "云米全屋互联网家电", "长颈鹿美语", "招商银行", "知慧学院", "中信银行"];
+    if(localStorage.user){
+        var json = JSON.parse(localStorage.user);
+        if(json.islandprocess == 6){
+            var str = ''
+            shoplist.forEach((item,index)=>{
+                str+='<div>'+item+'</div>'
+            })
+            $(".choocecontent").append($(str))
+            $(".result").show()
+        }
+    }
+    var arr = [["4%","45%",3.2],["5%","32%",1.4],["10%","15%",1.3],
+        ["40%","11%",1],["65%","17%",0.9],["75%","29%",0.8]]
+    //	console.log($(".touchIsland img"))
+    $(".touchIsland>.img").each(function(index,item){
+        index -=type;
+        if(index+1>$(".touchIsland>.img").length) index=index%$(".touchIsland>.img").length
+        if(index<0) index = issmall(index)
+        $(this).css({"left":arr[index][0],"top":arr[index][1],width:arr[index][2]*2+'rem',height:arr[index][2]*1.71+'rem',zIndex:10-index})
+        $(this).data('index',index)
+        if(localStorage.user){
+            var json = JSON.parse(localStorage.user);
+            if(json[$(this).data('type')] == true){
+                redloacation = $('<img/>');
+                redloacation.attr("src",'./img/chooceicon.png');
+                redloacation.css({width:0.495*arr[index][2]+'rem',height:0.68*arr[index][2]+'rem',position:'absolute',top:'0',left:'50%',transform:'translateX(-50%)',zIndex:99});
+                redloacation.addClass('redloacation')
+                $(this).append(redloacation)
+            }
+
+        }
+    })
+
+    //阻止微信浏览器滑动
+    // window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+    window.onload = function () {
+        //如果投了七家进入结果页面
+        // playbirdbg();
+        if(localStorage.user){
+            var json = JSON.parse(localStorage.user);
+            if(json.islandprocess == 7){
+                location.replace('./result.html');
+            }
+        }
+
+        $(".touchIsland>.img").css('transition','all 1s ease');
+        $(".redloacation").css('transition','all 1s ease');
+        /*setInterval(()=>{
+            $('.redloacation').toggleClass('topmove').toggleClass('bottommove')
+        },800)*/
+        //显示已选图标
+
+        var touchstart = 0;
+        var touchend = 0;
+        var flag = true;
+        /*$('body').on('touchstart',function(e){
+            var e = e || event;
+            console.log(e)
+        })*/
+        /*$('.touchIsland').on('swipeleft',function () {
+            document.querySelector('.musicaudio').currentTime = 0;
+            document.querySelector('.musicaudio').play()
+            if(!flag) return
+            num +=1;
+            moveimg();
+            flag = false;
+            setTimeout(()=>{
+                flag = true;
+            },800)
+        })
+        $('.touchIsland').on('swiperight',function () {
+            document.querySelector('.musicaudio').currentTime = 0;
+            document.querySelector('.musicaudio').play()
+            if(!flag) return
+            num -=1;
+            moveimg();
+            flag = false;
+            setTimeout(()=>{
+                flag = true;
+            },800)
+        })*/
+        document.querySelector('.touchIsland').addEventListener('touchstart',function(e){
+            // e.preventDefault();
+            console.log('touch')
+            if(!flag) return
+            var e  = e || event;
+            touchstart = e.touches[0].pageX;
+        })
+        /*document.querySelector('.touchIsland').addEventListener('touchmove',function(e){
+            if(!flag) return
+            document.querySelector('.musicaudio').currentTime = 0;
+            document.querySelector('.musicaudio').play()
+        })*/
+        // document.querySelector('.musicaudio').volume = 0.2;
+        document.querySelector('.touchIsland').addEventListener('touchend',function(e){
+            if(!flag) return
+            var e  = e || event;
+            touchend = e.changedTouches[0].pageX;
+            if(touchstart-touchend>100){
+                //左滑
+                num +=1;
+                // console.log(num)
+                moveimg();
+                document.querySelector('.musicaudio').currentTime = 0;
+                document.querySelector('.musicaudio').play()
+
+            }else if(touchend-touchstart>100){
+                //右滑
+                num -=1;
+                // console.log(num)
+                moveimg();
+                document.querySelector('.musicaudio').currentTime = 0;
+                document.querySelector('.musicaudio').play()
+            }
+            if((touchstart-touchend>100)||(touchend-touchstart>100)){
+                flag = false;
+                setTimeout(()=>{
+                    flag = true;
+                },800)
+            }
+        })
+        function moveimg(){
+            $(".touchIsland>.img").each(function(index,item){
+                index +=num;
+                if(index+1>$(".touchIsland>.img").length) index=index%$(".touchIsland>.img").length
+                if(index<0) index = issmall(index)
+                //		$(this).animate({"left":arr[index][0],"top":arr[index][1],transform:'scale('+arr[index][2]+')'},1000,'linear')
+                $(this).css({"left":arr[index][0],"top":arr[index][1],width:arr[index][2]*2+'rem',height:arr[index][2]*1.71+'rem',zIndex:10-index})
+                $(this).data("index",index);
+                if($(this).find('.redloacation')){
+                    $(this).find('.redloacation').css({width:0.495*arr[index][2]+'rem',height:0.68*arr[index][2]+'rem'})
+                }
+            })
+        }
+        $('.island').on('click',function (e) {
+            // console.log($(this).data('index'))
+            // console.log(111)
+            if($(this).parent().data('index') == 0){
+                location.replace('./islanddetail.html?type='+$(this).parent().data('type'))
+            }
+        })
+        /*var startX,startY,startTime;
+        document.querySelector('.island').addEventListener('touchstart',function(e){
+            // console.log(111)
+            e.preventDefault();
+            // 记录下触发的坐标和时间
+            startTime = (new Date()).getTime();
+            startX = e.targetTouches[0].clientX;
+            startY = e.targetTouches[0].clientY;
+        },false);
+        document.querySelector('.island').addEventListener('touchend',function(e){
+            e.preventDefault();
+            var now = (new Date()).getTime();
+            // 小于300ms可以识别为点击事件的范围 然后判断触摸点的移动距离
+            if (now - startTime < 500) {
+                var x = (Math.abs(startX - e.changedTouches[0].clientX) < 30);
+                var y = (Math.abs(startY - e.changedTouches[0].clientY) < 30);
+                if (x && y) {
+                    e.changedTouches[0].target.click();
+                }
+            }
+        },false);*/
+        //selectactive
+        $(".selectactive").on("touchstart",".leftshow",function () {
+            $(".choocecontent").show();
+        })
+        $(".choocecontent").on('click','div',function (e) {
+            $(".showcontent").text($(this).text());
+            $(".choocecontent").hide()
+        })
+        $(".rightshow").on('click',function () {
+            var json = JSON.parse(localStorage.user);
+            var data = {
+                "first": json.firstname,
+                "five": json.fivename,
+                "fourth": json.fourthname,
+                "second": json.secondname,
+                "seven": $(".showcontent").text(),
+                "six": json.sixname,
+                "third": json.thirdname,
+                "usercode":new Fingerprint().get()+''+localStorage.selfid,
+                // "usercode":'10000001',
+            }
+            /*json.islandprocess+=1;
+            json.seven = true;
+            json.sevenname = $(".showcontent").text();
+            localStorage.user = JSON.stringify(json);
+            location.replace('./result.html');*/
+            $.ajax({
+                type:'post',
+                url: USERMESSAGE.addVote,
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (res) {
+                    if(res.code == 0){
+                        json.islandprocess+=1;
+                        json.seven = true;
+                        json.sevenname = $(".showcontent").text();
+                        localStorage.user = JSON.stringify(json);
+                        location.replace('./result.html');
+                    }else{
+                        alert(res.msg)
+                    }
+                },
+            });
+
+        })
+    }
+    function issmall(index){
+        while(index<0){
+            index=index+$(".touchIsland>.img").length;
+        }
+        return index;
+    }
+
+</script>
