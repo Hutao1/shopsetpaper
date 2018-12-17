@@ -45,9 +45,22 @@
     /*var $au = $("<audio></audio>");
     $au[0].src = './audio/lute.mp3';
     $au[0].autoplay = 'autoplay';*/
-    $.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxeb4b5bbd03cee927&secret=7cd9ae992185b163170c22f78a54cc65',function (res) {
+    $.ajax({
+        type:'get',
+        url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3b5dd698737525dc&secret=04ee7eb456a3387cf9016fc27de7163b',
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        // contentType: "application/json; charset=utf-8",
+        success:function (res) {
+        alert(JSON.stringify(res))
+    }})
+    /*$.ajax({
+        type:'get',
+        url: 'https://api.weixin.qq.com/cgi-bin/callback/check?access_token=16_41GTrHjCtMCEehR4c-Y71oVHKsjGgJ_Q2ef84BB6e2NUXXETFcslK0oI9erteFO55Cr2fJxv4YCq8zEm9n2v9xm06oEUBtc0CL4MjsNUaBB1k56vLH79ky3WyJB5bR0j4Po1wQusta0qjIliSORbABAEAD',
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        // contentType: "application/json; charset=utf-8",
+        success:function (res) {
         console.log(res)
-    })
+    }})*/
 
     //阻止微信浏览器滑动
     // window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
