@@ -4,5 +4,5 @@ window.USERMESSAGE = {
     'queryUser':userip+'/user/queryUser',//查询用户
     'getSort':userip+'/voteLog/getSort',//查询排名
     'draw':userip+'/luck/draw',//抽奖
-    'queryTicket':userip+'/ticket/queryTicket',//获取签名
+    'insertTicket':userip+'/ticket/insertTicket',//获取签名
 }

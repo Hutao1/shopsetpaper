@@ -62,19 +62,17 @@
     // alert(location.href.split('#')[0])
     $.ajax({
         type:'post',
-        url: USERMESSAGE.queryTicket,
+        url: USERMESSAGE.insertTicket,
         contentType: "application/json; charset=utf-8",
+        data:JSON.stringify({data:location.href.split('#')[0]}),
         success: function (res) {
             if(res.code == 0){
                 wx.config({
                     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                    appId: 'wx3b5dd698737525dc', // 必填，公众号的唯一标识
+                    appId: 'wxbc9237f3b7af03e7', // 必填，公众号的唯一标识
                     timestamp: res.data.timestamps, // 必填，生成签名的时间戳
-                    // timestamp: '1545113095', // 必填，生成签名的时间戳
                     nonceStr: res.data.noncestr, // 必填，生成签名的随机串
-                    // nonceStr: '08c68b52-d035-403a-90c9-2bb68e71754f', // 必填，生成签名的随机串
                     signature: res.data.signatura,// 必填，签名
-                    // signature: 'ef83136d7b14c534476688c7691848677e6f9aaa',// 必填，签名
                     jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表
                 })
             }
